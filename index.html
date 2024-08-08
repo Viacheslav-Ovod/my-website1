@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Geographic</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+        a {
+            color: #ffc107;
+            text-decoration: none;
+        }
+        a:hover {
+            color: #ffeb3b;
+        }
+        .header, .footer {
+            background-color: #000000;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .header img {
+            margin-right: 10px;
+        }
+        .menu {
+            margin-top: 10px;
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #000000;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            border: 1px solid #ffc107;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
+        }
+        .dropdown-content a {
+            color: #ffffff;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #555;
+            color: #ffeb3b;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+            opacity: 1;
+            max-height: 500px;
+        }
+        .dropbtn {
+            font-size: 36px;
+            cursor: pointer;
+            color: #ffffff;
+            background: none;
+            border: none;
+            outline: none;
+        }
+        .content {
+            padding: 20px;
+            text-align: left;
+        }
+        .menu a {
+            margin: 0 15px;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+        .gallery div {
+            width: 30%;
+            margin: 10px;
+            background-color: #000000;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+        }
+        .gallery div:hover {
+            transform: scale(1.05);
+        }
+        .gallery img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        .gallery p {
+            text-align: center;
+            font-size: 14px;
+            background-color: #000000;
+            margin: 0;
+            padding: 5px;
+        }
+        .video {
+            text-align: center;
+            margin: 20px 0;
+            background-color: #000000;
+            padding: 10px;
+        }
+        .video iframe {
+            width: 80%;
+            height: 450px;
+            border: none;
+            background-color: #000000;
+        }
+        .footer p {
+            color: #ffffff;
+            text-decoration: underline yellow;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-100%) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+        .leaf {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: url('123.png') no-repeat center center;
+            background-size: contain;
+            animation: fall 10s linear infinite;
+            pointer-events: none;
+        }
+        .leaf:nth-child(2) {
+            left: 25%;
+            animation-duration: 12s;
+            width: 20px;
+            height: 20px;
+        }
+        .leaf:nth-child(3) {
+            left: 50%;
+            animation-duration: 14s;
+            width: 40px;
+            height: 40px;
+        }
+        .leaf:nth-child(4) {
+            left: 75%;
+            animation-duration: 16s;
+            width: 25px;
+            height: 25px;
+        }
+        .leaf:nth-child(5) {
+            left: 10%;
+            animation-duration: 18s;
+            width: 35px;
+            height: 35px;
+        }
+        .leaf:nth-child(6) {
+            left: 90%;
+            animation-duration: 20s;
+            width: 30px;
+            height: 30px;
+        }
+        .chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000000;
+            border: 1px solid #ffc107;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            color: #ffffff;
+        }
+        .chat h3 {
+            margin: 0;
+            color: #ffc107;
+        }
+        .chat p {
+            margin: 5px 0 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="leaf" style="left: 10%;"></div>
+    <div class="leaf" style="left: 25%;"></div>
+    <div class="leaf" style="left: 50%;"></div>
+    <div class="leaf" style="left: 75%;"></div>
+    <div class="leaf" style="left: 90%;"></div>
+    <div class="header">
+        <div style="display: flex; align-items: center;">
+            <img src="66d0115c90e3325a5372aeb37d0f1728.jpg" alt="National Geographic Logo" width="50" height="50">
+            <h1>National Geographic</h1>
+        </div>
+        <div class="menu">
+            <a href="#home">Home</a>
+            <a href="#news">News</a>
+            <a href="#photos">Photos</a>
+            <a href="#videos">Videos</a>
+            <a href="#magazine">Magazine</a>
+            <a href="#tv-shows">TV Shows</a>
+        </div>
+        <div class="dropdown" style="position: absolute; top: 20px; right: 20px;">
+            <button class="dropbtn">&#9776;</button>
+            <div class="dropdown-content">
+                <a href="#animals">Animals</a>
+                <a href="#environment">Environment</a>
+                <a href="#history-culture">History & Culture</a>
+                <a href="#science">Science</a>
+                <a href="#travel">Travel</a>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h2>Welcome to National Geographic</h2>
+        <p>This is a sample page replicating the structure and style of National Geographic website.</p>
+        <div class="gallery">
+            <div>
+                <img src="DALL·E 2023-11-23 19.54.30 - A high-resolution, sharp, and deeply detailed wide-angle image in a 16_9 aspect ratio, featuring a close-up of a 40-year-old Indian man, with the phot.png" alt="Image 1">
+                <p>A coal miner with a weathered face and deep, expressive eyes.</p>
+            </div>
+            <div>
+                <img src="DALL·E 2023-11-23 19.53.37 - A high-quality, high-resolution wide-angle image in a 16_9 aspect ratio, styled as a natural photograph taken with an 8K resolution camera, featuring .png" alt="Image 2">
+                <p>A majestic jaguar resting on a moss-covered branch in a dense jungle.</p>
+            </div>
+            <div>
+                <img src="DALL·E 2023-11-23 19.53.03 - A high-quality, high-resolution wide-angle image in a 16_9 aspect ratio, styled as a natural photograph taken with an 8K resolution camera, depicting .png" alt="Image 3">
+                <p>An intricate honeycomb structure with bees busy at work.</p>
+            </div>
+            <div>
+                <img src="DALL·E 2023-11-23 19.52.59 - A high-quality, high-resolution wide-angle image in a 16_9 aspect ratio, styled as a natural photograph taken with an 8K resolution camera, depicting .png" alt="Image 4">
+                <p>Bees swarming around a glowing, golden hive.</p>
+            </div>
+            <div>
+                <img src="DALL·E 2023-11-23 19.52.32 - A high-quality, high-resolution wide-angle image in a 16_9 aspect ratio, styled as a natural photograph taken with an 8K resolution camera, featuring .png" alt="Image 5">
+                <p>A portrait of a young woman with freckles and a direct gaze.</p>
+            </div>
+            <div>
+                <img src="DALL·E 2023-11-23 19.50.20 - A high-quality, high-resolution wide-angle image in a 16_9 aspect ratio, styled as a natural photograph taken with an 8K resolution camera, depicting .png" alt="Image 6">
+                <p>A tribal family cooking fish by the beach, surrounded by lush greenery.</p>
+            </div>
+        </div>
+        <div class="video">
+            <iframe src="https://www.youtube.com/embed/SQBu7w2hDac?autoplay=1&loop=1&playlist=SQBu7w2hDac" allow="autoplay" allowfullscreen></iframe>
+            <p>Watch this incredible video on the beauty of our natural world.</p>
+        </div>
+    </div>
+    <div class="footer">
+        <p>© National Geographic 2024</p>
+    </div>
+    <div class="chat">
+        <h3>Chat with us</h3>
+        <p>How can we help you?</p>
+    </div>
+</body>
+</html>
